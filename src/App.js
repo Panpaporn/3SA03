@@ -45,6 +45,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <h1>RANDOM GAME</h1>
                 < WordCard value={word.slice(random, random + 1).join().toUpperCase()}
                     getHint={this.getHint} requestHint={this.state.requestHint} />
                 <h1 id="result"></h1>
