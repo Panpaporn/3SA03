@@ -41,6 +41,7 @@ class App extends Component {
       
     render() {
         return ( <div > { < WordCard value = { word.slice(random, random + 1).join().toUpperCase() }getAnswer={this.getAnswer}/>} 
+        <h1 id="result"></h1>
         <button onClick = { this.play } > Play </button> 
         <button onClick = { this.pause } > Pause </button> 
         <h1 id="your-answer"></h1>
