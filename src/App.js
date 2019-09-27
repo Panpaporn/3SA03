@@ -34,31 +34,32 @@ class App extends Component {
     }
     newgame = () => {
         window.location.reload(false);
-      }
-    requestHint = () =>{
-        this.setState({requestHint: true});
-      }
-    getHint = (chars) =>{
-        document.getElementById('hints').innerHTML = `Hint : ${chars}`;
-      }
-      
-    render() {
-        return ( <div > 
-        < WordCard value = { word.slice(random, random + 1).join().toUpperCase() }
-        getHint = {this.getHint} requestHint = {this.state.requestHint}/> 
-        <h1 id="result"></h1>
-        <button onClick = { this.play } > Play </button> 
-        <button onClick = { this.pause } > Pause </button> 
-        <h1 id="your-answer"></h1>
-         <br></br>
-         <button id="newgame" className="button" onClick={this.newgame}>New Game</button>
-         <br></br><br></br>
-        <button id ="hint" className = "button" onClick={this.requestHint}>Hint</button>
-        <br></br>
-        <p id ="hints"></p>
-        </div>
-
-            );
-        }
     }
-    export default App;
+    requestHint = () => {
+        this.setState({ requestHint: true });
+    }
+    getHint = (chars) => {
+        document.getElementById('hints').innerHTML = `Hint : ${chars}`;
+    }
+
+    render() {
+        return (
+            <div className="App">
+                < WordCard value={word.slice(random, random + 1).join().toUpperCase()}
+                    getHint={this.getHint} requestHint={this.state.requestHint} />
+                <h1 id="result"></h1>
+                <button onClick={this.play} > Play </button>
+                <button onClick={this.pause} > Pause </button>
+                <h1 id="your-answer"></h1>
+                <br></br>
+                <button id="newgame" className="button" onClick={this.newgame}>New Game</button>
+                <br></br><br></br>
+                <button id="hint" className="button" onClick={this.requestHint}>Hint</button>
+                <br></br>
+                <p id="hints"></p>
+            </div>
+
+        );
+    }
+}
+export default App;
