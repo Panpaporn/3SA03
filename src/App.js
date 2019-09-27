@@ -2,44 +2,49 @@ import React, { Component } from 'react';
 import CharacterCard from './CharacterCard';
 import WordCard from './WordCard';
 import './App.css';
-const word = "Hello";
+const word = ['Pack', 'Pla', 'Pop'];
+const random = Math.floor(Math.random() * word.length)
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-    
-          play: false,
-          pause: true
-    
+
+            play: false,
+            pause: true
+
         };
-    
+
         this.url = "http://streaming11.tdiradio.com:8000/tdiradiokragujevac.mp3";
         this.audio = new Audio(this.url);
-    
-      }
 
-      play = () =>{
+    }
+
+    play = () => {
         this.setState({
-          play: true,
-          pause: false
+            play: true,
+            pause: false
         });
         console.log(this.audio);
         this.audio.play();
-      }
-    
-      pause =() =>{
-      this.setState({ play: false, pause: true });
-        this.audio.pause();
-      }
-
-    render() {
-        return ( 
-            <div>{ <WordCard value="PACK"/>}
-            <button onClick={this.play}>Play</button>
-            <button onClick={this.pause}>Pause</button>
-           </div>
-
-        );
     }
-}
-export default App;
+
+    pause = () => {
+        this.setState({ play: false, pause: true });
+        this.audio.pause();
+    }
+    getAnswer = (answer) => {
+        document.getElementById('complete').innerHTML = `Answer : ${answer}`;
+      }
+      
+    render() {
+        return ( <div > { < WordCard value = { word.slice(random, random + 1).join().toUpperCase() }getAnswer={this.getAnswer}/>} 
+        <button onClick = { this.play } > Play </button> 
+        <button onClick = { this.pause } > Pause </button> 
+        <h1 id="your-answer"></h1>
+        <br></br>
+        </div>
+
+            );
+        }
+    }
+    export default App;
