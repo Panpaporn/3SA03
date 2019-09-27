@@ -34,11 +34,13 @@ Component {
          if(guess.join('').toString() == this.state.chars.join('').toString()){
         this.setState({guess: [], completed: true})
         document.getElementById('result').innerHTML = `Congratulations! Or Succees`
+
         document.getElementById('your-answer').innerHTML = `Your Answer : ${this.state.chars.join("")}` 
 
         }else{
         this.setState({guess: [], attempt: this.state.attempt + 1})
         document.getElementById('result').innerHTML = `Attempt Or Try Again: ${this.state.attempt} `
+
         document.getElementById('your-answer').innerHTML = `Your Answer : ${this.state.chars.join("")}` 
         document.getElementById('result').innerHTML = `Attempt Or Try Again: ${this.state.attempt} `
         }
@@ -50,7 +52,22 @@ Component {
        }
        
 render() {
-    
+    if(this.props.requestHint){
+            var a;
+            var lenghtstring = 0;
+            var stringword = " ";
+            for(a in this.state.chars){
+                lenghtstring++;
+            }
+            lenghtstring = lenghtstring/2;
+            lenghtstring=lenghtstring.toFixed(0);
+            for(a = 0; a < lenghtstring; a++)
+            {
+                stringword += this.state.chars[a]
+        
+            }
+            this.props.getHint(stringword)
+        }
  return (
  <div>
 { Array.from(this.props.value).map((c, i) => <CharacterCard value={c} key={i}activationHandler={this.activationHandler}/>) }
