@@ -18,6 +18,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+body{
+  background :url(https://wallpapercave.com/wp/wp4346625.jpg) ;
+  height: 800px;
+  background-size: cover;
+  background-position: center;
+}
 
 .App-link {
   color: #61dafb;
@@ -35,12 +41,7 @@
   color: red;
   background: pink;
  }
- body{
-  background :url(https://wallpapercave.com/wp/wp4346625.jpg) ;
-  height: 800px;
-  background-size: cover;
-  background-position: center;
-}
+ 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
