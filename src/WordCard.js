@@ -38,7 +38,11 @@ Component {
         }else{
         this.setState({guess: [], attempt: this.state.attempt + 1})
         document.getElementById('your-answer').innerHTML = `Your Answer : ${this.state.chars.join("")}` 
-
+        document.getElementById('result').innerHTML = `Attempt Or Try Again: ${this.state.attempt} `
+        }
+        if(this.state.attempt == 3){
+            document.getElementById('result').innerHTML = `Game Over! So RestartGame`
+            setTimeout(() => window.location.reload(false),3000)
         }
         }
        }

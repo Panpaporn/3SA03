@@ -32,6 +32,9 @@ class App extends Component {
         this.setState({ play: false, pause: true });
         this.audio.pause();
     }
+    newgame = () => {
+        window.location.reload(false);
+      }
     getAnswer = (answer) => {
         document.getElementById('complete').innerHTML = `Answer : ${answer}`;
       }
@@ -41,7 +44,8 @@ class App extends Component {
         <button onClick = { this.play } > Play </button> 
         <button onClick = { this.pause } > Pause </button> 
         <h1 id="your-answer"></h1>
-        <br></br>
+         <br></br>
+         <button id="newgame" className="button" onClick={this.newgame}>New Game</button>
         </div>
 
             );
